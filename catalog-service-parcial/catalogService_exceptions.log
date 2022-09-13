@@ -1,0 +1,1 @@
+[2022-08-29 14:58:19] [ ERROR] [GlobalExceptionHandler:17] [500] during [GET] to [http://movie-service/movies/Terrore] [CatalogFeignClient#findMovieByGenre(String)]: [The server was unable to process the request.null]

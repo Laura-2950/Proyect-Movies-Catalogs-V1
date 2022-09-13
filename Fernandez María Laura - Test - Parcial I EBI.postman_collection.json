@@ -1,0 +1,524 @@
+{
+	"info": {
+		"_postman_id": "785890ed-70d9-4edb-af17-11cee13a0743",
+		"name": "Fernandez María Laura - Test - Parcial I EBI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17974445"
+	},
+	"item": [
+		{
+			"name": "Get Movies by Genre _ Gateway _ movie-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const movie = response[0];\r",
+							"\r",
+							"pm.test(\"Movie fround by genre\", ()=>{\r",
+							"    pm.expect(movie).to.be.an(\"object\");\r",
+							"    pm.expect(movie.genre).to.eql(\"Comedy\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/movies/:movieGenre",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"movies",
+						":movieGenre"
+					],
+					"variable": [
+						{
+							"key": "movieGenre",
+							"value": "Comedy",
+							"description": "Required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie by Genre _ catalog-service-dev",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Movie fround by genre\", ()=>{\r",
+							"    pm.expect(response).to.be.an(\"object\");\r",
+							"    pm.expect(response.genre).to.eql(\"Terror\");\r",
+							"    pm.expect(response.movies).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/catalog/:movieGenre",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"catalog",
+						":movieGenre"
+					],
+					"variable": [
+						{
+							"key": "movieGenre",
+							"value": "Terror",
+							"description": "Required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie by Genre _ Gateway _ catalog-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Movie fround by genre\", ()=>{\r",
+							"    pm.expect(response).to.be.an(\"object\");\r",
+							"    pm.expect(response.genre).to.eql(\"Comedy\");\r",
+							"    pm.expect(response.movies).to.be.an(\"array\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/catalog/:movieGenre",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"catalog",
+						":movieGenre"
+					],
+					"variable": [
+						{
+							"key": "movieGenre",
+							"value": "Comedy",
+							"description": "Required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie by Genre _ movie-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"const movie = response[0];\r",
+							"\r",
+							"pm.test(\"Movie fround by genre\", ()=>{\r",
+							"    pm.expect(movie).to.be.an(\"object\");\r",
+							"    pm.expect(movie.genre).to.eql(\"Comedy\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/movies/:movieGenre",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"movies",
+						":movieGenre"
+					],
+					"variable": [
+						{
+							"key": "movieGenre",
+							"value": "Comedy",
+							"description": "Required"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info -Gateway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/actuator/info",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health- Gateway",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{gatewayURL}}/actuator/health",
+					"host": [
+						"{{gatewayURL}}"
+					],
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info - catalog-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/actuator/info",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health - catalog-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8082/actuator/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info - movie-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/actuator/info",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health - movie-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8084/actuator/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info - config-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/actuator/info",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health - config-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/actuator/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info - eureka-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8761/actuator/info",
+					"host": [
+						"localhost"
+					],
+					"port": "8761",
+					"path": [
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health - eureka-service",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8761/actuator/health",
+					"host": [
+						"localhost"
+					],
+					"port": "8761",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "gatewayURL",
+			"value": "localhost:8080"
+		}
+	]
+}

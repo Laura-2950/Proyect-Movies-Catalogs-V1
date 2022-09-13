@@ -1,0 +1,13 @@
+# name of microservice
+spring:
+  application:
+    name: movie-service
+  # we specify that it take the configurations of the config-service
+  could:
+    config:
+      dicovery:
+        enamble: true
+        service-id: config-service
+  # profile of microservice
+  profiles:
+    active: dev
