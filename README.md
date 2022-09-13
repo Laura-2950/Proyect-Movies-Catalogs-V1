@@ -1,7 +1,7 @@
 # Consigna
 A partir de la siguiente arquitectura de microservicios, te pedimos implementar la misma
 utilizando Spring Cloud.
-https://raw.githubusercontent.com/Laura-2950/Proyect-Movies-Catalogs-V1/main/Captura.PNG
+(https://raw.githubusercontent.com/Laura-2950/Proyect-Movies-Catalogs-V1/main/Captura.PNG)
 Contarás con los microservicios Movie y Catalog. Deberás configurar Eureka server para el
 autodescubrimiento de los microservicios, utilizando los nombres:
 
